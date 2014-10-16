@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pebble Challenge</title>
+  <meta name="author" content="Jack Forbes" />
+  <meta name="description" content="Pebble Coding Challenge | Responsive Reddit Client">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="img/favicon.ico">
+  <link href='https://fonts.googleapis.com/css?family=tangerine|Raleway|Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/autocomplete.css"/>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body ng-controller="PageCtrl" ng-init="initialize()">
+
+<!--   <div class="headers">
+    <h1>Reddit Client</h1>
+  </div> -->
+
+  <div class="autocomplete" ng-hide="elements.length">
+    <i class="fa fa-search fa-2x"></i>
+    <input type="text" autocomplete
+    ng-model="searchParam"
+    placeholder="Search for a Subreddit"
+    ng-focus="focused = true"
+    ng-blur="blur()">
+    <ul ng-show="searchParam.length > 0 && focused" class="suggestions">
+      <li
+      ng-repeat="suggestion in subreddits | filter:searchParam | orderBy:'toString()' | limitTo:10 track by $index"
+      val="{{suggestion}}"
+      ng-class="{ 'active': $index == selectedIndex }"
+      ng-click="submitSubreddit(suggestion)"
+      ng-bind-html="suggestion | highlight:searchParam">
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="content slide" ng-show="elements.length">
+<!--     <div ng-view class="content slide" skrollr
+    data-top-top="margin-top: 50px"
+    data-center-top="margin-top: 200px"> -->
+
+    <div>{{type}} /r/{{searchParam}}
+      <table>
+      <tbody>
+        <tr ng-repeat="element in elements ">
+          <td><h3>{{element.score}}</h3></td>
+          <td>
+            <a ng-href='http://reddit.com{{element.permalink}}' target='_blank' class="title">{{element.title}}
+            </a>
+            <br>
+            <small class="label label-username">
+              <i class="fa fa-user-md"></i>{{element.author}}
+            </small>
+            <small class="label label-comments">
+              <i class="fa fa-comment-o"></i>{{element.num_comments}} comments
+            </small>
+            <small class="label label-hours">
+              <i class="fa fa-clock-o"></i>{{getHours(element.created_utc)}} hours
+            </small>
+          </td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+
+  </div>
+
+<!--   <div class="footer">
+    <a href="mailto:jackforbes24@gmail.com?subject=Look! A Pre-Populated Subject!">jackforbes24@gmail.com</a>
+    <a class="linked-in" href="http://ca.linkedin.com/in/greaturl/" target="_blank">http://ca.linkedin.com/in/greaturl/</a>
+  </div> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-touch.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>
