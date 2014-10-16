@@ -1,29 +1,26 @@
-/* AUTOCOMPLETE */
+/* AUTOCOMPLETE CSS */
 
 .autocomplete {
-    color: white;
-    position: relative;
-    margin: 15% 20%;
-    width: 320px;
+  color: white;
+  position: relative;
+  margin: 50px;
+  width: 350px;
 }
 
 .autocomplete input {
-    background: transparent;
-    border: none;
-    color: white;
-    font-family: 'Tangerine', cursive;
-    font-size: 2em;
-    outline: none;
-    width: 250px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: 'Tangerine', cursive;
+  font-size: 2.2em;
+  outline: none;
+  width: 280px;
 }
 
 .autocomplete ul {
   position: absolute;
   left: 0;
   width: 100%;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
   z-index: 1;
 }
 
@@ -41,26 +38,33 @@
 }
 
 .autocomplete .highlight {
-    color: #ff9e9e;
-}
-
-.autocomplete li.active .highlight {
- /* background: gray;
-  color: #fff;*/
+  color: #ff9e9e;
 }
 
 ::-webkit-input-placeholder {
-   color: white;
+  color: white;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: white;
+  color: white;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: white;
+  color: white;
 }
 
 :-ms-input-placeholder {
-   color: white;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Style adjustments for viewports 600px and under go here */
+  .autocomplete {
+    width: 280px;
+    margin: 25px;
+  }
+  .autocomplete input {
+    width: 230px;
+    font-size: 1.8em;
+  }
 }

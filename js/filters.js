@@ -1,7 +1,6 @@
 'use strict';
 
 /* Filters */
-
 angular.module('myApp.filters', []).
 filter('highlight', ['$sce', function ($sce) {
   return function (input, searchParam) {

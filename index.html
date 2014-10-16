@@ -15,13 +15,12 @@
 </head>
 <body ng-controller="PageCtrl" ng-init="initialize()">
 
-<!--   <div class="headers">
-    <h1>Reddit Client</h1>
-  </div> -->
-
   <div class="autocomplete" ng-hide="elements.length">
-    <i class="fa fa-search fa-2x"></i>
+    <i class="fa fa-2x"
+      ng-class="{'fa-spinner fa-spin': (subreddits.length < 1 && !noAutocomplete), 'fa-search': (subreddits.length || noAutocomplete)}">
+    </i>
     <input type="text" autocomplete
+    autofocus="true"
     ng-model="searchParam"
     placeholder="Search for a Subreddit"
     ng-focus="focused = true"
@@ -38,16 +37,14 @@
   </div>
 
 
-  <div class="content slide" ng-show="elements.length">
-<!--     <div ng-view class="content slide" skrollr
-    data-top-top="margin-top: 50px"
-    data-center-top="margin-top: 200px"> -->
-
-    <div>{{type}} /r/{{searchParam}}
+  <div class="content slide" ng-show="elements.length || noSubredditPosts">
+    <h2 ng-show="noSubredditPosts">Unable to load posts :(</h2>
+    <div>
+      <h2>{{type}} /r/{{searchParam}}</h2>
       <table>
       <tbody>
         <tr ng-repeat="element in elements ">
-          <td><h3>{{element.score}}</h3></td>
+          <td class="score"><h3>{{element.score}}</h3></td>
           <td>
             <a ng-href='http://reddit.com{{element.permalink}}' target='_blank' class="title">{{element.title}}
             </a>
@@ -66,13 +63,19 @@
       </tbody>
       </table>
     </div>
-
   </div>
 
-<!--   <div class="footer">
-    <a href="mailto:jackforbes24@gmail.com?subject=Look! A Pre-Populated Subject!">jackforbes24@gmail.com</a>
-    <a class="linked-in" href="http://ca.linkedin.com/in/greaturl/" target="_blank">http://ca.linkedin.com/in/greaturl/</a>
-  </div> -->
+  <div class="footer" ng-class="{'relative': elements.length > 1}">
+    <a class="website" href="http://jackforbes.net" target="_blank">
+      <i class="fa fa-user"></i>
+    </a>
+    <a class="github" href="https://github.com/JackForbes/Pebble" target="_blank">
+      <i class="fa fa-github-square"></i>
+    </a>
+    <a class="linked-in" href="http://ca.linkedin.com/in/greaturl/" target="_blank">
+      <i class="fa fa-linkedin-square"></i>
+    </a>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-touch.min.js"></script>

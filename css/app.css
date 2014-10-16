@@ -134,6 +134,9 @@ h3 {
 .title {
   font-size: 1.2em;
 }
+.score {
+  vertical-align: top;
+}
 .label {
   color: #DDD;
   font-family: 'Raleway', sans-serif;
@@ -150,18 +153,22 @@ h3 {
 /* Footer */
 .footer {
   bottom: 0;
-  color: #ff9400;
+  left: 0;
   padding: 10px;
   position: absolute;
+  right: 0;
   text-align: center;
-  width: 100%;
+}
+.footer.relative {
+  position: relative;
 }
 .footer a {
   display: inline-block;
   font-family: 'Raleway', sans-serif;
   text-decoration: none;
+  color: #ff9e9e;
 }
-.linked-in::before {
+.linked-in::before, .github::before {
   content: '';
   display: inline-block;
   vertical-align: middle;
@@ -175,12 +182,9 @@ h3 {
 @media only screen and (max-width: 600px) {
   /* Style adjustments for viewports 600px and under go here */
   .content {
-    margin: 0 auto;
+    margin: 20px auto;
     width: 90%;
     font-size: 1em;
     padding: 10px;
-  }
-  .footer a {
-    font-size: 0.8em;
   }
 }

@@ -6,7 +6,6 @@ directive('autocomplete', function() {
   var index = -1;
 
   return {
-    restrict: 'A',
     link: function(scope, element, attrs) {
 
       var key = {left: 37, up: 38, right: 39, down: 40, enter: 13, esc: 27, tab: 9};
