@@ -52,7 +52,7 @@ html {
 body {
   margin: 0;
   font-size: 13px;
-  line-height: 1.231;
+  height: 100%;
   background: url('../img/reddit-wallpaper.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
