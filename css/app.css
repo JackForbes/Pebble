@@ -48,11 +48,15 @@ html {
   overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  min-height: 100%;
 }
 body {
   margin: 0;
   font-size: 13px;
-  background: url('../img/reddit-wallpaper.jpg') no-repeat center center fixed;
+  background-image: url('../img/reddit-wallpaper.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -181,12 +185,13 @@ h3 {
 
 @media only screen and (max-width: 600px) {
   /* Style adjustments for viewports 600px and under go here */
-  body {
+/*  body {
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -o-background-size: 100% 100%;
     background-size: 100% 100%;
-  }
+    background-attachment: scroll;
+  }*/
   .content {
     margin: 20px auto;
     width: 90%;
