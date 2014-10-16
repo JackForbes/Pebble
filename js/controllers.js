@@ -27,7 +27,7 @@ angular.module('myApp.controllers', [])
     };
 
     $scope.loadSubreddit = function(subreddit, type) {
-      var url='https://api.redddit.com/r/' + subreddit + '/' + type + '?jsonp=JSON_CALLBACK';
+      var url='https://api.reddit.com/r/' + subreddit + '/' + type + '?jsonp=JSON_CALLBACK';
       $http.jsonp(url).success(function(data) {
         var dataset = data.data.children;
         for (var i = 0; i < dataset.length; ++i) {
